@@ -1,7 +1,7 @@
 # How to customize your Linux Mint (Sway)
 
 ## Linux Installation
-Try to Install your Linux
+Try to install Linux on your computer. If you are new here, I recommended you to use [Linux Mint](https://linuxmint.com/download.php). 
 
 ## Setup sway
 To install [sway](https://wiki.archlinux.org/title/Sway), do this in your Linux terminal.
@@ -9,15 +9,17 @@ To install [sway](https://wiki.archlinux.org/title/Sway), do this in your Linux 
 sudo apt update
 sudo apt install sway
 ```
+If you are using NVDIA card, 
 
 ## Initial Setup (config file)
 - Kitty installation
   ```
   sudo apt install kitty
+  Kitty +kitten themes
   ```
   and find and replace to become the code below in `~/.config/sway/config`:
   ```
-  indsym $mod+Return exec kitty
+  Bindsym $mod+Return exec kitty
   ```
   
 - For Wallpaper setup, install `swaybg`:
@@ -26,6 +28,17 @@ sudo apt install sway
   ```
   add it to `~/.config/sway/config` if you don't have it:
   ```output * bg ~/Pictures/me2.jpg fill```
+
+- For brightnessctl keybind setup:
+  ```
+  sudo apt install brightnesstcl
+  sudo usermod -aG video your_username
+  ```
+  Then add this keybind to use `Fn + f5`, `Fn + f6` key to control in `~/.config/sway/config`:
+  ```
+  bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+  bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+  ```
   
 ## Setup your waybar
 1. Install waybar:
@@ -38,6 +51,7 @@ sudo apt install sway
   ```
   sudo apt install fonts-firacode
   ```
+  
 ## fastfetch is perfect
 1. Install prerequisite if needed:
    ```
@@ -60,7 +74,60 @@ To customize the ASCII art logo in fastfetch, try this:
 ```
 fastfetch --logo-color-1 red --logo-color-2 yellow --color cyan
 ```
-
+3. Fastfetch configuration:
+   Try this code:
+```
+fastfetch --gen-config > ~/.config/fastfetch/config.jsonc
+```
+and then paste your config to this `~/.config/fastfetch/config.jsonc`. For example:
+   ```
+     {
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  
+    "logo": {
+      "source": "/home/datto/Documents/me.txt",
+      "color": {
+        "1": "cyan"
+      }
+    },
+  
+    "display": {
+      "color": "cyan"
+    },
+  
+    "modules": [
+        "title",
+        "separator",
+        "os",
+        "host",
+        "kernel",
+        "uptime",
+        "packages",
+        "shell",
+        "display",
+        "de",
+        "wm",
+        "wmtheme",
+        "theme",
+        "icons",
+        "font",
+        "cursor",
+        "terminal",
+        "terminalfont",
+        "cpu",
+        "gpu",
+        "memory",
+        "swap",
+        "disk",
+        "localip",
+        "battery",
+        "poweradapter",
+        "locale",
+        "break",
+        "colors"
+      ]
+    }
+  ```
 
 ## Also try yazi
 First, install Rust & some tools:
