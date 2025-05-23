@@ -9,7 +9,7 @@ To install [sway](https://wiki.archlinux.org/title/Sway), do this in your Linux 
 sudo apt update
 sudo apt install sway
 ```
-If you are using NVDIA card, add `--unsupported-gpu` in `/usr/share/wayland-sessions/sway.desktop`.
+If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/share/wayland-sessions/sway.desktop`.
 
 ## Initial Setup ([~/.config/sway/config](https://github.com/DatIT-026/.dotfiles/blob/7c909ba9b74543761accd89f754b99f7c10b3aa4/sway/config))
 - Kitty installation
