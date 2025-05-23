@@ -11,7 +11,7 @@ sudo apt install sway
 ```
 If you are using NVDIA card, 
 
-## Initial Setup (config file)
+## Initial Setup ([~/.config/sway/config](https://github.com/DatIT-026/.dotfiles/blob/7c909ba9b74543761accd89f754b99f7c10b3aa4/sway/config))
 - Kitty installation
   ```
   sudo apt install kitty
@@ -40,7 +40,7 @@ If you are using NVDIA card,
   bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
   ```
   
-## Setup your waybar
+## Setup your waybar ([~/.config/waybar/config](https://github.com/DatIT-026/.dotfiles/blob/45199d81e42283f6a230838ceb10d78e7814d45f/waybar/config) and [~/.config/waybar/style.css](https://github.com/DatIT-026/.dotfiles/blob/ffd9354b3f1b491ef9c7cb919489d2a249a2d4a9/waybar/style.css))
 1. Install waybar:
    ```
    sudo apt install waybar
