@@ -181,8 +181,5 @@ sort_dir_first = true
 [opener]
 edit = [
   { run = 'hx "$@"', block = true },
-]
-open = [
-  { run = 'glow "$@"', block = true, desc = "Glow" },
-]
+]`
 ```
