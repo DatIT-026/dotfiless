@@ -86,7 +86,7 @@ fastfetch --logo-color-1 red --logo-color-2 yellow --color cyan
   ```
   fastfetch --gen-config > ~/.config/fastfetch/config.jsonc
   ```
-and then paste your config to this `~/.config/fastfetch/config.jsonc`. For example:
+  and then paste your config to this `~/.config/fastfetch/config.jsonc`. For example:
    ```
      {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
