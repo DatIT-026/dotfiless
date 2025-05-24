@@ -1,0 +1,72 @@
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.clangd]
+command = "clangd"
+
+[language-server.jdtls]
+command = "jdtls"
+
+[language-server.html-ls]
+command = "html-languageserver"
+args = ["--stdio"]
+
+[language-server.css-ls]
+command = "css-languageserver"
+args = ["--stdio"]
+
+[language-server.ts-ls]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "html"
+language-servers = ["html-ls"]
+comment-token = "<!-- -->"
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = ["css-ls"]
+comment-token = "/* */"
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = ["ts-ls"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+auto-format = true
+
+[[language]]
+name = "java"
+language-servers = ["jdtls"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = " " }
+
+[[language]]
+name = "c"
+language-servers = ["clangd"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = " " }
+file-types = ["c"]
+
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = " " }
+file-types = ["cpp", "hpp", "cxx", "hxx"]
+
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+comment-token = "#"
+formatter = { command = "black", args = ["-"] }
+text-width = 79
+roots = ["pyproject.toml", "setup.py", "Poetry.lock"]
+

@@ -1,0 +1,24 @@
+theme = "onedark"
+
+[editor]
+# line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+ins = "insert_mode"
+esc = ["collapse_selection", "keep_primary_selection"]
+C-o = ":config-open"
+C-r = ":config-reload"
+C-s = ":w"
+S-z = ":q"
+
+
+
