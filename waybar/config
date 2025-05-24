@@ -71,11 +71,11 @@
             "format-alt": "{ifname}: {ipaddr}/{cidr}"
         },
     
-        "pulseaudio": {
-            "format": "{icon} {volume}%",
-            "format-bluetooth": "{volume}% {icon} {format_source}",
-            "format-bluetooth-muted": " {icon} {format_source}",
-            "format-muted": " 0%",
+        "pulseaudio": {                                                                     
+        "format": "{icon} {volume}%",                                                   
+        "format-bluetooth": " {volume}%",                                              
+        "format-bluetooth-muted": "󰂲 0%",                                          
+        "format-muted": " 0%",
             "format-icons": {
                 "headphone": "",
                 "hands-free": "",
