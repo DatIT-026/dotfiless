@@ -45,21 +45,21 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
    ```
    sudo apt install waybar
    ```
-   Add my config to `~/.config/waybar/config`
+   Add my config to `~/.config/waybar/config`.
 3. Font installation ([here](https://www.nerdfonts.com/font-downloads)):
 - Unzip and try this:
   ```
   mkdir -p ~/.local/share/fonts
   cp path_to_downloaded_fonts/*.otf ~/.local/share/fonts/
   ```
-  For example: `unzip JetBrainsMono.zip -d ~/.local/share/fonts/ && unzip ~/Downloads/FiraCode.zip -d ~/.local/share/fonts/`
+  For example: `unzip JetBrainsMono.zip -d ~/.local/share/fonts/` && `unzip ~/Downloads/FiraCode.zip -d ~/.local/share/fonts/`
   
 - Update cache fonts:
   ```
   fc-cache -fv
   ```
   
-## fastfetch is perfect
+## Fastfetch is perfect
 1. Install prerequisite if needed:
    ```
    sudo apt install software-properties-common
@@ -76,16 +76,16 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
 4. Verify installation by running: `fastfetch`
 
 To customize the ASCII art logo in fastfetch, try this:
-1. Preparing a file, for example in my repo: `me.txt`
+1. Preparing a file, for example in my repo: [`me.txt`](https://github.com/DatIT-026/.dotfiles/blob/e5dc35be66362a01108ce516d10a0bd962217056/Documents/me.txt).
 2. Try this code:
 ```
 fastfetch --logo-color-1 red --logo-color-2 yellow --color cyan
 ```
 3. Fastfetch configuration:
-   Try this code:
-```
-fastfetch --gen-config > ~/.config/fastfetch/config.jsonc
-```
+  Try this code:
+  ```
+  fastfetch --gen-config > ~/.config/fastfetch/config.jsonc
+  ```
 and then paste your config to this `~/.config/fastfetch/config.jsonc`. For example:
    ```
      {
