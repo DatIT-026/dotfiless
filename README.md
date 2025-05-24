@@ -1,10 +1,10 @@
 # How to customize your Linux Mint (Sway)
 
 ## Linux Installation
-Try to install Linux on your computer. If you are new here, I recommended you to use [Linux Mint](https://linuxmint.com/download.php). 
+Install Linux on your computer. If you are new here, I recommended you to use [Linux Mint](https://linuxmint.com/download.php). 
 
 ## Setup sway
-To install [sway](https://wiki.archlinux.org/title/Sway), do this in your Linux terminal.
+To install [sway](https://wiki.archlinux.org/title/Sway):
 ```
 sudo apt update
 sudo apt install sway
@@ -34,7 +34,7 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
   sudo apt install brightnesstcl
   sudo usermod -aG video your_username
   ```
-  Then add this keybind to use `Fn + f5`, `Fn + f6` key to control in `~/.config/sway/config`:
+  Then add this keybind to use `Fn + f5`, `Fn + f6` key in `~/.config/sway/config`:
   ```
   bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
   bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -47,9 +47,16 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
    ```
    Add my config to `~/.config/waybar/config`
 3. Font installation ([here](https://www.nerdfonts.com/font-downloads)):
-- Fira Code
+- Unzip and try this:
   ```
-  sudo apt install fonts-firacode
+  mkdir -p ~/.local/share/fonts
+  cp path_to_downloaded_fonts/*.otf ~/.local/share/fonts/
+  ```
+  For example: `unzip JetBrainsMono.zip -d ~/.local/share/fonts/ && unzip ~/Downloads/FiraCode.zip -d ~/.local/share/fonts/`
+  
+- Update cache fonts:
+  ```
+  fc-cache -fv
   ```
   
 ## fastfetch is perfect
