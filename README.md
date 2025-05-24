@@ -172,3 +172,17 @@ Check version:
 yazi --version
 ya --version
 ```
+Also try this in `~/.config/yazi/yazi.toml`:
+```
+[manager]
+show_hidden = true
+sort_by = "alphabetical"
+sort_dir_first = true
+[opener]
+edit = [
+  { run = 'hx "$@"', block = true },
+]
+open = [
+  { run = 'glow "$@"', block = true, desc = "Glow" },
+]
+```
