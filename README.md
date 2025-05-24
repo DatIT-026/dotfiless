@@ -172,7 +172,7 @@ Check version:
 yazi --version
 ya --version
 ```
-Also try this in `~/.config/yazi/yazi.toml`:
+Also try yazi with [helix](https://helix-editor.com/) in `~/.config/yazi/yazi.toml`:
 ```
 [manager]
 show_hidden = true
