@@ -21,7 +21,10 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
   ```
   Bindsym $mod+Return exec kitty
   ```
-  
+  To make the cursor shape, add this in `~/.config/kitty/kitty.conf `:
+  ```
+  cursor_shape block
+  ```
 - For Wallpaper setup, install `swaybg`:
   ```
   sudo apt install swaybg
