@@ -183,3 +183,63 @@ edit = [
   { run = 'hx "$@"', block = true },
 ]`
 ```
+## Git push
+
+1. Generate SSH key (if you don’t have one)
+  ```
+  ssh-keygen -t ed25519 -C "your_email@example.com"
+  ```
+  if your system does not support ed25519, use:
+  ```
+  ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+  ```
+
+
+2. Start ssh-agent and add your key:
+  ```
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_ed25519
+  ```
+  or if you used RSA:
+  ```
+  ssh-add ~/.ssh/id_rsa
+  ```
+
+
+3. Copy your public SSH key:
+  ```
+  cat ~/.ssh/id_ed25519.pub
+  ```
+  or for RSA:
+  ```
+  cat ~/.ssh/id_rsa.pub
+  ```
+
+
+4. Add the SSH key to your GitHub account:
+  Manually paste the copied key on GitHub under Settings > SSH and GPG keys
+
+
+5. Change your Git remote URL to SSH:
+  ```
+  git remote set-url origin git@github.com:username/repo.git
+  ```
+  Replace username/repo.git with your actual GitHub repo path
+
+
+6. Test SSH connection:
+  ```
+  ssh -T git@github.com
+  ```
+  You should see a success message like:
+  *Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.*
+
+
+7. Push your code:
+  ```
+  git push origin main
+  ```
+  or just:
+  ```
+  git push
+  ```
