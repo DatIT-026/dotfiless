@@ -1,7 +1,7 @@
 # How to customize your Linux Mint (Sway)
 
 ## Linux Installation
-Install Linux on your computer. If you are new here, I recommended you to use [Linux Mint](https://linuxmint.com/download.php). 
+Install [Linux](https://en.wikipedia.org/wiki/Linux) on your computer. If you are new here, I recommended you to use [Linux Mint](https://linuxmint.com/download.php). 
 
 ## Setup sway
 To install [sway](https://wiki.archlinux.org/title/Sway):
@@ -17,11 +17,11 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
   sudo apt install kitty
   Kitty +kitten themes
   ```
-  and find and replace to become the code below in `~/.config/sway/config`:
+  add or replace to become the code below in `~/.config/sway/config`:
   ```
   Bindsym $mod+Return exec kitty
   ```
-  To make the cursor shape, add this in `~/.config/kitty/kitty.conf `:
+  for the cursor shape, add this code in `~/.config/kitty/kitty.conf `:
   ```
   cursor_shape block
   ```
@@ -29,7 +29,7 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
   ```
   sudo apt install swaybg
   ```
-  add it to `~/.config/sway/config` if you don't have it:
+  add the code below to `~/.config/sway/config` if you don't have it for the next startup:
   ```output * bg ~/Pictures/me2.jpg fill```
 
 - For brightnessctl keybind setup:
@@ -48,8 +48,9 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
    ```
    sudo apt install waybar
    ```
-   Add my config to `~/.config/waybar/config`.
-3. Font installation ([here](https://www.nerdfonts.com/font-downloads)):
+   Add your config to `~/.config/waybar/config`.
+   
+2. Font installation ([here](https://www.nerdfonts.com/font-downloads)):
 - Unzip and try this:
   ```
   mkdir -p ~/.local/share/fonts
@@ -62,7 +63,7 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
   fc-cache -fv
   ```
   
-## Fastfetch is perfect
+## Neofetch is dead, try to use Fastfetch
 1. Install prerequisite if needed:
    ```
    sudo apt install software-properties-common
