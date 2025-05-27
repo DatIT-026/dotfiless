@@ -15,7 +15,7 @@ If you are using NVDIA card, change to `Exec=sway --unsupported-gpu` in `/usr/sh
 - Kitty installation
   ```
   sudo apt install kitty
-  Kitty +kitten themes
+  kitty +kitten themes
   ```
   add or replace to become the code below in `~/.config/sway/config`:
   ```
