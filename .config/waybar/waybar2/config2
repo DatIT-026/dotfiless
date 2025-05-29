@@ -14,8 +14,8 @@
         "pulseaudio",
     	"backlight",
         "network",
-	    "cpu",
-	    "memory",
+	"cpu",
+	"memory",
         "temperature",
         "battery",
     ],
@@ -29,12 +29,11 @@
     },
     "clock": {
         "tools-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	    "format": " {:%H:%M}",  
-        "format-alt": " {:%Y-%m-%d}"
+	"format": " {:%H:%M}",  
+        "format-alt": " {:%a, %b %d %Y}"
     },
-      "cpu": {
+    "cpu": {
         "format": " {usage}%",
-        "tooltip": false
     },
     "memory": {
         "format": " {}%"
@@ -63,7 +62,7 @@
     },
     "network": {
         "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈁",
+        "format-ethernet": "{ipaddr}/{cidr} 󱘖",
         "tooltip-format": "{ifname} via 󰿘 {gwaddr}",
         "format-linked": "{ifname} (No IP) 󰲛",
         "format-disconnected": " ⚠ ",
