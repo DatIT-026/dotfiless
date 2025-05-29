@@ -94,7 +94,7 @@ button:hover {
 }
 
 #pulseaudio {
-    color: #B5FCCD;
+    color: @flamingo;
 }
 
 #backlight {
@@ -102,7 +102,11 @@ button:hover {
 }
 
 #network {
-    color: white;
+    color: #B5FCCD;
+}
+
+#network.disconnected {
+    color: yellow;
 }
 
 #temperature {
@@ -114,7 +118,7 @@ button:hover {
 }
 
 #clock {
-    color: @flamingo;
+    color: white;
 }
 
 #cpu {
