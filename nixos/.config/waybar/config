@@ -30,7 +30,7 @@
     },
     "clock": {
         "tools-format": "<big>{calendar} {:%Y %B}</big></tt>",
-    	"format": " {:%a, %b %d %Y (%H:%M)}",  
+    	"format": "  {:%a, %b %d %Y (%H:%M)}",  
     },
     "cpu": {
         "format": " {usage}%",
@@ -85,7 +85,6 @@
             "car": "",
             "default": ["", "", " "]
         },
-        "on-click": "pavucontrol"
     },   
 }
 
