@@ -1,0 +1,9 @@
+font_family Fira Code
+font_size 11
+
+# BEGIN_KITTY_THEME
+Night Lion V1
+include current-theme.conf
+# END_KITTY_THEME
+
+cursor_shape block
