@@ -1,7 +1,10 @@
-# How to customize your Linux Mint (Sway)
+# How to use Linux effectively
+
+This markdown contains some tutorials to help me while using Linux.
 
 ## Linux Installation
-Install [Linux](https://en.wikipedia.org/wiki/Linux) on your computer. If you are new here, I recommended you to use [Linux Mint](https://linuxmint.com/download.php). 
+Install [Linux](https://en.wikipedia.org/wiki/Linux) on your computer. If you are new here, try reading [this article](https://dattos-archive.click/posts/2025/05/linux-for-beginner/) before entering the Linux world.    
+Also, if you have no idea which distro to use, I recommended that you should use [Linux Mint](https://linuxmint.com/download.php).
 
 ## Setup sway
 To install [sway](https://wiki.archlinux.org/title/Sway):
@@ -190,35 +193,29 @@ edit = [
 
 2. Complete the requirement -> Generate token -> Copy your access token
 
-3. git remote <set-url> origin https://<token>@github.com/<username>/<repo>
+3. `git remote <set-url> origin https://<token>@github.com/<username>/<repo>`
 
-  Example: git remote set-url origin https://XXXXX@github.com/datto/dotfiless
+  Example: `git remote set-url origin https://XXXXX@github.com/datto/dotfiless`
 
-4. git push
+4. `git push`
 
 
 ## Setup iwd (iNet wireless daemon) on NixOS
 
 First, add these to configuration.nix:
-```
+```Nix
   networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
-
 ```
 
 _Note_: Make sure `networking.networkmanager.enable = true;`
 
-How to use it?
+### How to use it?
 
 1. Start: `iwctl`
-
-2. List available Wifi adapters: `device list`
-
-3. Scan available Wifi networks on a device (e.g. _wlan0_): `station wlan0 scan`
-
+2. List available Wi-fi adapters: `device list`
+3. Scan available Wi-fi networks on a device (e.g. _wlan0_): `station wlan0 scan`
 4. Show the networks found in the last scan: `station wlan0 get-networks`
-
-5. Connect to a Wifi: `station wlan0 connect SSID` (SSID is the network name)
-_Note_: Maybe you will be asked to enter the password/.
-
-6. Disconnect from the Wifi network: `station wlan0 disconnect` and exit: `exit`
+5. Connect to a Wifi: `station wlan0 connect SSID` (SSID is the network name)    
+_Note_: Maybe you will be asked to enter the password.
+6. Disconnect from the Wi-fi network: `station wlan0 disconnect` and exit: `exit`
