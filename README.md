@@ -94,7 +94,7 @@ fastfetch --logo-color-1 red --logo-color-2 yellow --color cyan
   fastfetch --gen-config > ~/.config/fastfetch/config.jsonc
   ```
   and then paste your config to this `~/.config/fastfetch/config.jsonc`. For example:
-   ```
+   ```json
      {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   
@@ -177,7 +177,7 @@ yazi --version
 ya --version
 ```
 Also try yazi with [helix](https://helix-editor.com/) in `~/.config/yazi/yazi.toml`:
-```
+```toml
 [manager]
 show_hidden = true
 sort_by = "alphabetical"
@@ -185,7 +185,7 @@ sort_dir_first = true
 [opener]
 edit = [
   { run = 'hx "$@"', block = true },
-]`
+]
 ```
 ## Git push
 
