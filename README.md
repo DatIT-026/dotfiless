@@ -195,3 +195,30 @@ edit = [
   Example: git remote set-url origin https://XXXXX@github.com/datto/dotfiless
 
 4. git push
+
+
+## Setup iwd (iNet wireless daemon) on NixOS
+
+First, add these to configuration.nix:
+```
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+
+```
+
+_Note_: Make sure `networking.networkmanager.enable = true;`
+
+How to use it?
+
+1. Start: `iwctl`
+
+2. List available Wifi adapters: `device list`
+
+3. Scan available Wifi networks on a device (e.g. _wlan0_): `station wlan0 scan`
+
+4. Show the networks found in the last scan: `station wlan0 get-networks`
+
+5. Connect to a Wifi: `station wlan0 connect SSID` (SSID is the network name)
+_Note_: Maybe you will be asked to enter the password/.
+
+6. Disconnect from the Wifi network: `station wlan0 disconnect` and exit: `exit`
