@@ -239,4 +239,4 @@ EAP-PEAP-Phase2-Password=<Wifi Password>
 AddressOverride=<MAC Address>
 
 ```
-To get MAC Address, use `ip a`
+To get MAC Address, use `ip a`.
