@@ -219,3 +219,24 @@ _Note_: Make sure `networking.networkmanager.enable = true;`
 5. Connect to a Wifi: `station wlan0 connect SSID` (SSID is the network name)    
 _Note_: Maybe you will be asked to enter the password.
 6. Disconnect from the Wi-fi network: `station wlan0 disconnect` and exit: `exit`
+
+Bonus: To connect the Wifi which is 8021x encryption:
+Go to  `/var/lib/iwd/`, then add <wifi>.<type>. For example:
+```
+FPTU_Students.8021x
+```
+
+Add the following code here:
+```
+[Security]
+EAP-Method=PEAP
+EAP-Identity=<Wifi Username>
+EAP-PEAP-Phase2-Method=MSCHAPV2
+EAP-PEAP-Phase2-Identity=<Wifi Username>
+EAP-PEAP-Phase2-Password=<Wifi Password>
+
+[Settings]
+AddressOverride=<MAC Address>
+
+```
+To get MAC Address, use `ip a`
