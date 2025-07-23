@@ -227,7 +227,7 @@ FPTU_Students.8021x
 ```
 
 Add the following code here:
-```
+```bash
 [Security]
 EAP-Method=PEAP
 EAP-Identity=<Wifi Username>
