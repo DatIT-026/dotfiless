@@ -2,16 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
+
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
 
   fileSystems = {
     "/" = {
@@ -24,70 +22,47 @@
     };
   };
 
-  stylix = {
-    enable = true;
-    image = null;
-
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  };
-
-  services.thermald = {
-    enable = true;
-  };
-
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-    };
-  };
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking = {
-    hostName = "datto";
-    networkmanager.enable = false; # Easiest to use and most distros use this by default.
-    wireless.iwd.enable = true;
-    networkmanager.wifi.backend = "iwd";
+  networking.hostName = "datto"; # Define your hostname.
+  networking.networkmanager.enable = false;  # Easiest to use and most distros use this by default.
+
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+
+  system.activationScripts = {
+    rfkillUnblockWlan = {
+      text = ''
+      rfkill unblock wlan
+      '';
+      deps = [];
+    };
   };
 
-  # system.activationScripts = {
-  #   rfkillUnblockWlan = {
-  #     text = ''
-  #       rfkill unblock wlan
-  #     '';
-  #     deps = [ ];
-  #   };
-  # };
-
-  systemd.targets = {
-    sleep.enable = false;
-    suspend.enable = false;
-    hibernate.enable = false;
-    hybrid-sleep.enable = false;
-  };
-
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+  
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
   time.hardwareClockInLocalTime = true;
 
   services = {
     displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.niri.enable = true;
+    
+  programs.niri.enable = true; 
   programs.waybar.enable = true;
-
+ 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  console.keyMap = "jp106";
 
   # command: fcitx5-configtool
   i18n.inputMethod = {
@@ -106,7 +81,7 @@
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
   };
-
+  
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -120,61 +95,32 @@
   users.users.datto = {
     isNormalUser = true;
     password = "datto";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+      tree
+    ];
   };
-
-  home-manager.users.datto =
-    { pkgs, ... }:
-    {
-      programs.kitty = {
-        enable = true;
-
-        shellIntegration = {
-          enableBashIntegration = true;
-          enableFishIntegration = true;
-        };
-
-        settings = {
-          touch_scroll_multiplier = 3.0;
-          confirm_os_window_close = 0;
-        };
-      };
-
-      programs.fish = {
-        enable = true;
-      };
-
-      programs.starship = {
-        enable = true;
-        enableBashIntegration = true;
-        enableFishIntegration = true;
-      };
-
-      home.stateVersion = "25.11";
-    };
 
   nix.settings = {
     show-trace = true;
     auto-optimise-store = true;
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    experimental-features = ["nix-command" "flakes"];
     flake-registry = "";
   };
-
+ 
   programs.firefox.enable = true;
   programs.nh.enable = true;
 
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs;[
     brightnessctl
-    pwvucontrol
+    pavucontrol
     swaybg
+    zsh
     rofi-wayland
     alacritty
     libreoffice
@@ -185,10 +131,6 @@
     jdk8
     wget
     git
-    gcc
-
-    nil
-    alejandra
   ];
 
   fonts.packages = with pkgs; [
@@ -201,8 +143,8 @@
     ipafont
   ];
 
-  services.dbus.enable = true;
-
+services.dbus.enable = true;
+ 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
@@ -221,4 +163,6 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment? yes
+
 }
+
