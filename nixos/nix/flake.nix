@@ -15,26 +15,17 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations = {
-        datto = nixpkgs.lib.nixosSystem {
-          system = system;
-          modules = [
-            inputs.stylix.nixosModules.stylix
-            inputs.home-manager.nixosModules.home-manager
+  outputs = inputs: {
+    nixosConfigurations = {
+      datto = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          inputs.stylix.nixosModules.stylix
+          inputs.home-manager.nixosModules.home-manager
 
-            ./configuration.nix
-          ];
-        };
+          ./configuration.nix
+        ];
       };
     };
+  };
 }

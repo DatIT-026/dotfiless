@@ -57,15 +57,6 @@
     networkmanager.wifi.backend = "iwd";
   };
 
-  # system.activationScripts = {
-  #   rfkillUnblockWlan = {
-  #     text = ''
-  #       rfkill unblock wlan
-  #     '';
-  #     deps = [ ];
-  #   };
-  # };
-
   systemd.targets = {
     sleep.enable = false;
     suspend.enable = false;
@@ -124,37 +115,13 @@
   };
 
   home-manager.users.datto =
-    { pkgs, ... }:
+    { ... }:
     {
-      programs.kitty = {
-        enable = true;
-
-        shellIntegration = {
-          enableBashIntegration = true;
-          enableFishIntegration = true;
-        };
-
-        settings = {
-          touch_scroll_multiplier = 3.0;
-          confirm_os_window_close = 0;
-        };
-      };
-
-      programs.fish = {
-        enable = true;
-      };
-
-      programs.starship = {
-        enable = true;
-        enableBashIntegration = true;
-        enableFishIntegration = true;
-      };
-
-      home.stateVersion = "25.11";
+      imports = [ ./datto.nix ];
     };
 
   nix.settings = {
-    show-trace = true;
+    show-trace = false;
     auto-optimise-store = true;
     experimental-features = [
       "nix-command"
