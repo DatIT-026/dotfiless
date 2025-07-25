@@ -9,6 +9,13 @@
     };
 
     settings = {
+      font_family = "FiraCode Nerd Font";
+      font_size = 12.5;
+
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
+      
       touch_scroll_multiplier = 3.0;
       confirm_os_window_close = 0;
 
