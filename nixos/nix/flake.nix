@@ -13,13 +13,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixowos = {
-      url = "github:yunfachi/nixowos";
-      # Optional:
-      # inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.denix.follows = "denix";
-    };
   };
 
   outputs = inputs: {
@@ -27,27 +20,12 @@
       datto = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          inputs.nixowos.nixosModules.default {
-            # Enable NixOwOS
-            nixowos.enable = true;
-          }
           inputs.stylix.nixosModules.stylix
           inputs.home-manager.nixosModules.home-manager
-                    
+                  
           ./configuration.nix
         ];
       };
-
-      homeConfigurations.standaloneHomeManagerConfig = inputs.home-manager.lib.homeManagerConfiguration {
-        modules = [
-          inputs.nixowos.homeManagerModules.default
-          {
-            # Enable NixOwOS
-            nixowos.enable = true;
-          }
-        ];
-      };
-      
     };
   };
 }

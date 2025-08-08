@@ -142,19 +142,19 @@
     swaybg
     rofi-wayland
     alacritty
-    libreoffice
     xorg.setxkbmap
     kitty
     yazi
     helix
-    jdk8
     wget
-    git
-    gcc
 
     nil
     alejandra
 
+    libreoffice
+    git
+    gcc
+    jdk8
   ];
  
   fonts.packages = with pkgs; [
