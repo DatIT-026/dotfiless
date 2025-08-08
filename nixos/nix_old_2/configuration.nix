@@ -2,11 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
-    ./stylix.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -154,12 +156,12 @@
 
     nil
     alejandra
-
   ];
- 
+
   fonts.packages = with pkgs; [
     roboto
     nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
     nerd-fonts.fira-code
     font-awesome
 
