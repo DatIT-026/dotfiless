@@ -347,6 +347,7 @@ window-rule {
     match app-id=r#"libresprite$"#
     match app-id=r#"waypaper$"#
     match app-id=r#"Audacity$"#
+	match app-id=r#"^Rofi$"#
 
     open-floating true
     opacity 1.0
